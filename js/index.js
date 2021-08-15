@@ -8,51 +8,35 @@ function getNews() {
         .then(data => {
             console.log('Getting data');
             console.log(data);
-            test = data.value;
+            test = data.news;
+        
         });
-    insertNews(test);
+        renderNews(test); //insertNews(test);
 }
 
-function insertNews(news) {
-    const parent = document.getElementById('container');
-    parent.innerHTML = `<p>${news[0].imageURI}</p>`;
-    
+function renderNews(newsartikel) {
+    document.getElementById("container").innerHTML = "";
+    newsartikel.forEach(news => {
+        let html = `
+        <article>
+        <div class="image_wrapper">
+          <img
+            src="${news[i].imageURI}">
+        </div>
+        <div class="article_content_wrapper">
+          <div>
+            <h3>${news[i].title}</h3> <!-- Title -->
+          </div>
+          <div>
+          ${news[i].content}
+          </div>
+          <div class="likes"> likes: ${news[i].likes}</div>
+          <div class="datum"> datum: ${news[i].publicationDate}</div>
+        </div>
+      </article>
+        `;    document.getElementById("container").insertAdjacentHTML("beforeend", html);
+    });
 }
 
 getNews();
-
-/*
-
-
- sortLikes(likes) {
-        const sortedlikes = likes.sort((a,b) =>  {
-            return a - b;
-        });
-        this.aantalLikes(sortedlikes);
-    },
-
-
-
-
-news[numbers (a > b)]
-news[0].
-
-
-
-
-
-Sorteren
-
-let sortedLikes = numbers.sort(function(b,a) {
-    console.log(a,b);
-    if(a > b) {
-        return -1;
-    } else {
-        return 1;
-    }
-})
-
-
-
-*/
 
