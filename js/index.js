@@ -7,20 +7,40 @@ function getNews() {
         .then(response => response.json())
         .then(data => {
             console.log('Getting data');
+            console.log(data);
             test = data.value;
         });
-    console.log('End News');
-    insertNews(news);
+    insertNews(test);
 }
 
 function insertNews(news) {
     const parent = document.getElementById('container');
-    parent.innerHTML = `<p>${news}</p>`;
+    parent.innerHTML = `<p>${news[0].imageURI}</p>`;
+    
 }
 
 getNews();
 
 /*
+
+
+ sortLikes(likes) {
+        const sortedlikes = likes.sort((a,b) =>  {
+            return a - b;
+        });
+        this.aantalLikes(sortedlikes);
+    },
+
+
+
+
+news[numbers (a > b)]
+news[0].
+
+
+
+
+
 Sorteren
 
 let sortedLikes = numbers.sort(function(b,a) {
@@ -31,6 +51,8 @@ let sortedLikes = numbers.sort(function(b,a) {
         return 1;
     }
 })
+
+
 
 */
 
