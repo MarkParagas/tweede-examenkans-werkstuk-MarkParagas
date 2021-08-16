@@ -2,6 +2,13 @@
 
 let html = '';
 let search = document.getElementById("keyName");
+let form = document.getElementById("form");
+
+function init() {
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+    });
+}
 
 window.onload = () => {
     fetch('https://thecrew.cc/news/read.php')
@@ -10,10 +17,11 @@ window.onload = () => {
             console.log('Getting data');
             console.log(data);
             data.news.forEach(news => {
-
-                if (search.value == news.title.search(search.value)) {
-                    valueNumber = string.slice((a,b) => a.min < b.max); // 3)
-                } else {
+                if (search.value == news.title.search(search.value) || news.content.search(search.value)) {
+                    valueNumber = string.slice() => { // errors
+                        news.push();
+                    }; 
+                }  else {
                     return html = `Geen resultaat`;
                 }
                 html += `
@@ -43,15 +51,12 @@ window.onload = () => {
         });
 }
 
-let sortLikes = [];
-
-// 4) Progress...
-
-for (let i = 0; i < 11; i++) {
-    if (news[i].likes > news[i + 1].likes) {
-        sortLikes.push(news[i].likes);
-    }
+function sortLikes() {
+    article.sort((a,b) => {
+        return b.likes - a.likes;
+    });
 }
+
 
 /*
 
@@ -61,6 +66,7 @@ Vorige code waren niet alles in bepaalde functie worden gedefineerd
 Succeed:
 1) Api ophalen
 2) Alles laten weergeven inner html
+
 3) Zoekbalk toevoegen
 4) sorteren van likes toevoegen
 
