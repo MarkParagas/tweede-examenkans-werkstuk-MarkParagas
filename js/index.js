@@ -34,24 +34,25 @@ const news = {
             //console.log("title",search.title);
             //console.log("content",search.content);
             // Filter search op title en content
-            if(search.title || search.content)  {
+            if(search.title)  {
                 return search;
             }
         });
         console.log(filtersearch);
         this.sortlikes(filtersearch); 
+        //this.newsTotal(filtersearch);
     },
     // sorter by likes 
     sortlikes(likes) { 
         const sortlikes = likes.sort((a,b) =>  {
-            return b.likes - a.likes;
+            return b.likes - a.likes; 
         });
 
         this.newsTotal(sortlikes);
     },
     // Show total items (Articles)
     newsTotal(news) { // aantal news
-        const newstotal = news.slice(0,5); // Total in API (max:10) articles
+        const newstotal = news.slice(0,10); // Total in API (max:10) articles
         console.log({newstotal});
 
         this.renderNews(newstotal);
@@ -114,6 +115,10 @@ Start met init en addeventlister als start in form
             </article>
             `;
 
+
+Error!
+
+Don't search exact input value / take value by likes?
 
 --------------------- Notes ---------------------
 

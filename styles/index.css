@@ -23,8 +23,9 @@ main {
 form {
   display: flex;
   justify-content: space-evenly;
-  height: 10vh;
   align-items: center;
+  height: 10vh;
+  width: 50%;
 }
 
 label {
@@ -35,6 +36,7 @@ label {
 label p {
   letter-spacing: 5px;
   padding-right: 20px;
+  padding-left: 10px;
   color: white;
   font-weight: bold;
 }
@@ -46,7 +48,6 @@ button {
   color: white;
   border-radius: 15px;
   padding: 5px 20px;
-  margin-left: 20px;
 }
   
 #container {
