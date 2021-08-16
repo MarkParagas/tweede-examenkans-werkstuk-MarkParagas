@@ -31,8 +31,8 @@ const news = {
     // Filter value on search
     filterSearch(news) {
         const filtersearch = news.filter(search => {
-            console.log("title",search.title);
-            console.log("content",search.content);
+            //console.log("title",search.title);
+            //console.log("content",search.content);
             // Filter search op title en content
             if(search.title || search.content)  {
                 return search;
@@ -67,7 +67,7 @@ const news = {
                 <div class="article_content_wrapper">
                         <div class="title">
                             <div class="info">
-                                <div class="datum"> Datum: ${news.publicationDate}</div>
+                                <div class="datum"> Datum: ${Date(news.publicationDate)}</div>
                                 <div class="likes"> Likes: ${news.likes}</div>
                             </div>
                             <h1>${news.title}</h1>
@@ -84,8 +84,6 @@ const news = {
 };
 
 news.init();
-
-
 
 /*
 
@@ -115,5 +113,13 @@ Start met init en addeventlister als start in form
                 </div>
             </article>
             `;
+
+
+--------------------- Notes ---------------------
+
+likes filter door op knop en schijden van searchbalk
+
+Opslaan van value property
+https://www.codegrepper.com/code-examples/javascript/how+to+save+values+to+a+property+javascript
 
 */
